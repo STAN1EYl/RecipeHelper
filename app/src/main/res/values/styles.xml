@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.AppIntro" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+</resources>
