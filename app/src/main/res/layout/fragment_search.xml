@@ -20,6 +20,8 @@
             android:drawablePadding="8dp"
             android:hint="Search here..."
             android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

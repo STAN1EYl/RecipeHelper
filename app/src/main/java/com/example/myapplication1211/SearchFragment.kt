@@ -1,12 +1,16 @@
 package com.example.myapplication1211
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -41,22 +45,24 @@ class SearchFragment : Fragment() {
         adapter = ImageAdapter(emptyList()) { imageData -> onFavoriteClicked(imageData) }
         recyclerView.adapter = adapter
 
+        searchEditText.setOnEditorActionListener { _, actionId, event ->
+            val isSearchKey = actionId == EditorInfo.IME_ACTION_SEARCH
+            val isEnterKey  = event?.keyCode == KeyEvent.KEYCODE_ENTER
+            if (isSearchKey || isEnterKey) {
+                val query = searchEditText.text.toString().trim()
+                if (query.isNotEmpty()) searchData(query)
+                else loadAllData()
 
-        searchEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val query = s.toString().trim()
-                if (query.isNotEmpty()) {
-                    searchData(query)
-                } else {
-                    loadAllData()
-                }
+                searchEditText.clearFocus()
+                (context?.getSystemService(Context.INPUT_METHOD_SERVICE)
+                        as? InputMethodManager)
+                    ?.hideSoftInputFromWindow(searchEditText.windowToken, 0)
+                true
+            } else {
+                false
             }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-
+        }
 
         loadAllData()
 

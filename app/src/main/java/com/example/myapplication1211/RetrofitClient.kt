@@ -6,9 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    //private const val BASE_URL = "http://192.168.31.171:5000/" // 确保使用 HTTP#192.168.1.100
-    //private const val BASE_URL = "http://192.168.31.189:5000/"
-    //private const val BASE_URL = "http://192.168.31.206:5000/"
+
     private const val BASE_URL = "https://recipeapi-jd4i.onrender.com/"
     val apiService: ApiService by lazy {
         val logging = HttpLoggingInterceptor()
