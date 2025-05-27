@@ -1,7 +1,7 @@
 main program: app/src/main/java/com/example/myapplication1211
 
 
-![螢幕擷取畫面 2024-11-24 003645](https://github.com/user-attachments/assets/90587a30-b772-4d09-970d-405e3940a544)
+![螢幕擷取畫面 2025-05-28 020523](https://github.com/user-attachments/assets/e30041f3-c54d-46af-9ff8-4f979dd1496e)
 
 ![image](https://github.com/user-attachments/assets/a6ab62e1-8184-41d9-9e20-4d0aab7d018c)
 
